@@ -1,0 +1,27 @@
+# Saqlain Abid — serve index.html for clean page URLs (/services, /pricing, ...)
+# ErrorDocument makes sure missing URLs show our own custom 404 page, never Hostinger's.
+ErrorDocument 404 /index.html
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ---- Security hardening ----
+# No directory listings
+Options -Indexes
+
+<IfModule mod_headers.c>
+  # Stop browsers guessing content types (blocks some XSS tricks)
+  Header always set X-Content-Type-Options "nosniff"
+  # Block clickjacking: site cannot be embedded in other sites' iframes
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Don't leak full page URLs to other sites
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Disable browser features this site never uses
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  # Hide server version details
+  Header always unset X-Powered-By
+</IfModule>

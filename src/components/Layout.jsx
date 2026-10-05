@@ -66,7 +66,7 @@ function Header() {
       <nav className={`main-nav ${open ? "open" : ""}`}>
           {NAV.map((n, i) => (
             n.external ? (
-              <a key={n.href} href={n.href} target="_blank" rel="noopener" onClick={() => setOpen(false)}>
+              <a key={n.href} href={n.href} target="_blank" rel="noopener" onClick={() => setOpen(false)} className="nav-sec">
                 <span className="m-num">{String(i + 1).padStart(2, "0")}</span>
                 <span>{n.label}</span> <ArrowUpRight size={18} style={{ verticalAlign: "-3px" }} />
               </a>

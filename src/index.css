@@ -701,6 +701,11 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--sh); }
   .site-header.menu-open .header-in { position: relative; z-index: 66; }
   .site-header { top: 8px; }
 }
+/* mid screens: hide secondary external links (Prompts/Tools/LMS) instead of burger */
+@media (min-width: 861px) and (max-width: 1100px) {
+  .main-nav .nav-sec { display: none; }
+  .main-nav a:not(.btn) { padding: 9px 10px; font-size: 0.88rem; }
+}
 @media (max-width: 600px) {
   .section { padding: 60px 0; }
   .prob-grid, .also-grid, .work-grid, .course-grid, .prompt-grid, .testi-grid, .pillar-grid, .tool-grid { grid-template-columns: 1fr; }

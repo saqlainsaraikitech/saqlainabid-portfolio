@@ -701,9 +701,12 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--sh); }
   .site-header.menu-open .header-in { position: relative; z-index: 66; }
   .site-header { top: 8px; }
 }
-/* mid screens: hide secondary external links (Prompts/Tools/LMS) instead of burger */
-@media (min-width: 861px) and (max-width: 1100px) {
+/* desktop: secondary external links (Prompts/Tools/LMS) stay in footer + mobile menu —
+   9 links never fit the pill, so they are hidden here at every desktop width */
+@media (min-width: 861px) {
   .main-nav .nav-sec { display: none; }
+}
+@media (min-width: 861px) and (max-width: 1100px) {
   .main-nav a:not(.btn) { padding: 9px 10px; font-size: 0.88rem; }
 }
 @media (max-width: 600px) {

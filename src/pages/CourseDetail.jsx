@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Clock, Check, ChevronDown, Infinity as InfinityIcon } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Clock, Check, ChevronDown, Infinity as InfinityIcon } from "lucide-react";
 import { Reveal, SectionHead, TickList, JsonLd, useSEO } from "../components/ui";
 import { courseBySlug, COURSES } from "../data/courses";
 import { COURSE_PARTS } from "../data/courseParts";
@@ -76,6 +76,9 @@ export default function CourseDetail() {
               <TickList items={c.includes} />
               <a className="btn btn-gold btn-block" href={waLink(`Hi Saqlain! I want to enroll in "${c.name}" (PKR ${c.deal.toLocaleString()}). Please share payment details.`)} target="_blank" rel="noopener">
                 Enroll via WhatsApp <ArrowRight size={15} />
+              </a>
+              <a className="btn btn-outline btn-block" href="https://lms.digitalmax.pk/" target="_blank" rel="noopener" style={{ marginTop: 10 }}>
+                Open the LMS <ArrowUpRight size={15} />
               </a>
               <span className="fee-note"><InfinityIcon size={13} /> Lifetime access + free updates</span>
             </div>
